@@ -1,7 +1,7 @@
 <?php
 
-include 'init.php';
-
+include '../Register/init.php';
+include "selectData.php";
 if(!isset($_SESSION['user'])){
 
     header ('location:login.php');
@@ -43,7 +43,6 @@ if(!isset($_SESSION['user'])){
             <th>Humidity</th>
         </tr>
         <?php
-        include "selectData.php";
         while($row = mysqli_fetch_assoc($result)) {
             echo "<tr>".
                 "<td>".$row["date"]."</td>".
@@ -52,6 +51,7 @@ if(!isset($_SESSION['user'])){
                 "<td>".$row["humidity"]."</td>".
                 "</tr>";
         }
+
         ?>
     </table>
 </main>

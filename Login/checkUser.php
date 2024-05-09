@@ -1,5 +1,5 @@
 <?php
-include 'init.php';
+include '../Register/init.php';
 $username = $_POST['txtUserName'];
 $password = $_POST['txtUserPass'];
 
@@ -16,4 +16,5 @@ if ($row = mysqli_fetch_assoc($result)) {
     header('location:protected.php');
     
     }
-?>
+
+mysqli_close($connection);

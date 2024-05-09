@@ -1,7 +1,7 @@
 <?php
 
-include 'init.php';
-
+include 'Register/init.php';
+include "Prediction/calcPred.php";
 if(!isset($_SESSION['user'])){
 
 header ('location:login.php');
@@ -48,7 +48,6 @@ header ('location:login.php');
             <th>Humidity</th>
         </tr>
         <?php
-        include "calcPred.php";
         echo "<tr><td>7-Day Average</td>".
             "<td>".round($minTotal/7)."</td>".
             "<td>".round($maxTotal/7)."</td>".

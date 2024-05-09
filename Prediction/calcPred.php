@@ -1,10 +1,16 @@
 
 <?php 
-include "init.php";
-$minTotal=0;
-$maxTotal=0;
-$humidTotal=0;
-$count=0;
+include "../Register/init.php";
+$minTotal = 0;
+$maxTotal = 0;
+$humidTotal = 0;
+$count = 0;
+$firstMin = 0;
+$firstMax = 0;
+$firstHumid = 0;
+$secondMin = 0;
+$secondMax = 0;
+$secondHumid = 0;
 //Query
 $query = "SELECT readingID, minTemp, maxTemp, humidity, date FROM rawData ORDER BY readingID DESC LIMIT 7";
 $result = mysqli_query($connection, $query);
@@ -30,4 +36,4 @@ while($row = mysqli_fetch_assoc($result)) {
 $diffMin = $firstMin + ($firstMin - $secondMin);
 $diffMax = $firstMax + ($firstMax - $secondMax);
 $diffHumid = $firstHumid + ($firstHumid - $secondHumid);
-?>
+mysqli_close($connection);

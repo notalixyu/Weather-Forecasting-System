@@ -1,14 +1,14 @@
 <?php
 
-include 'init.php';
-
+include '../Register/init.php';
+session_start();
 if(!isset($_SESSION['user'])){
 
-header ('location:login.php');
-
+header('Location: login.php');
+exit();
 }
-
-?> 
+include "calcPred.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,10 +25,10 @@ header ('location:login.php');
     <ul class="nav-links">
         <li class="home"><a href="../Index.php" class="nav-link">Home</a></li>
         <li class="predictions"><a href="predictions.php" class="nav-link">Predictions</a></li>
-        <li class="data"><a href="data.php" class="nav-link">Data</a></li>
+        <li class="data"><a href="../Data/data.php" class="nav-link">Data</a></li>
         <li class="register"><a href="../register.html" class="nav-link">Register</a></li>
         <li class="login"><a href="../login.html" class="nav-link">Login</a></li>
-        <li class="logout"><a href="logout.php" class="nav-link">Logout</a></li>
+        <li class="logout"><a href="../Login/logout.php" class="nav-link">Logout</a></li>
     </ul>
 </nav>
 
@@ -43,7 +43,6 @@ header ('location:login.php');
         <th>Humidity</th>
         </tr>
         <?php
-        include "calcPred.php";
         echo "<tr><td>7-Day Average</td>".
         "<td>".round($minTotal/7)."</td>".
         "<td>".round($maxTotal/7)."</td>".
