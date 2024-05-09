@@ -1,4 +1,14 @@
-<?php session_start() ?>
+<?php
+
+include 'init.php';
+
+if(isset($_SESSION['user'])){
+
+    header ('location:Index.php');
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
